@@ -77,25 +77,25 @@ static int bellvolume = 0;
 /*
  * visual-bell timeout (set to 0 to disable visual-bell).
  */
-static int vbelltimeout = 0;
+static int vbelltimeout = 75;
 /*
  * visual bell mode when enabled:
  *   1: Inverse whole screen
  *   2: Inverse outer (border) cells
  *   3: Draw a filled circle.
  */
-static int vbellmode = 1;
+static int vbellmode = 3;
 /*
  * for vbellmode == 3 (circle) the following parameters apply:
  * - base and outline colors (colorname index - see below).
  * - radius: relative to window width, or if negative: relative to cell-width.
  * - position: relative to window width/height (0 and 1 are at the edges).
  */
-static int vbellcolor = 3;
+static int vbellcolor = 1;
 static int vbellcolor_outline = 1;
-static float vbellradius = 0.03;
-static float vbellx = 0.5;
-static float vbelly = 0.5;
+static float vbellradius = 0.02;
+static float vbellx = 0.97;
+static float vbelly = 0.03;
 
 /* default TERM value */
 char *termname = "st-256color";
@@ -151,7 +151,7 @@ static unsigned int defaultrcs = 15;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 4;
 
 /*
  * Default columns and rows numbers
@@ -179,8 +179,8 @@ static unsigned int defaultattr = 11;
  */
 static MouseShortcut mshortcuts[] = {
 	/* button               mask            string */
-	{ Button4,              XK_NO_MOD,      "\031" },
-	{ Button5,              XK_NO_MOD,      "\005" },
+	/*{ Button4,              XK_NO_MOD,      "\031" },
+	{ Button5,              XK_NO_MOD,      "\005" },*/
 };
 
 MouseKey mkeys[] = {
@@ -506,4 +506,4 @@ static char ascii_printable[] =
  * plumb_cmd is run on mouse button 3 click, with argument set to
  * current selection and with cwd set to the cwd of the active shell
  */
-static char *plumb_cmd = "plumb";
+static char *plumb_cmd = "libreoffice";
