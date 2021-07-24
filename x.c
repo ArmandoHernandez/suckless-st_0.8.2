@@ -113,6 +113,7 @@ typedef struct {
 	 * one sees when hovering the mouse over the terminal from, e.g.,
 	 * a green rectangle where text would be entered. */
 	Cursor vpointer, bpointer; /* visible and hidden pointers */
+	int pointerisvisible;
 	int scr;
 	int isfixed; /* is fixed geometry? */
 	int depth; /* bit depth */
