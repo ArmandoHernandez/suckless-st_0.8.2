@@ -26,6 +26,9 @@ boxdraw_xinit(Display *dpy, Colormap cmap, XftDraw *draw, Visual *vis)
 	xdpy = dpy; xcmap = cmap; xd = draw, xvis = vis;
 }
 
+extern const int boxdraw;
+extern const int boxdraw_braille;
+extern const int boxdraw_bold;
 int
 isboxdraw(Rune u)
 {
