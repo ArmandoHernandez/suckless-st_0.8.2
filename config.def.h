@@ -98,11 +98,11 @@ static int vbellmode = 1;
  * - base and outline colors (colorname index - see below)
  * - radius: relative to window width, or if negative: relative to cell-width
  * - position: relative to window width/height (0 and 1 are at the edges) */
-static int vbellcolor = 3;
+static int vbellcolor = 1;
 static int vbellcolor_outline = 1;
-static float vbellradius = 0.03;
-static float vbellx = 0.5;
-static float vbelly = 0.5;
+static float vbellradius = 0.07;
+static float vbellx = 1;
+static float vbelly = 0;
 
 /* default TERM value */
 char *termname = "st-256color";
@@ -122,7 +122,7 @@ char *termname = "st-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 5;
 
 /* bg opacity */
 float alpha = 0.8;
