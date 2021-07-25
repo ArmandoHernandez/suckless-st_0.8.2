@@ -125,9 +125,9 @@ char *termname = "st-256color";
 unsigned int tabspaces = 5;
 
 /* bg opacity */
-float alpha = 0.8;
-float grad_alpha = 0.54; //alpha value that'll change
-float stat_alpha = 0.46; //constant alpha value that'll get added to grad_alpha
+float alpha = 0.9;
+float grad_alpha = 0.2; //alpha value that'll change
+float stat_alpha = 0.8; //constant alpha value that'll get added to grad_alpha
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -167,7 +167,7 @@ static unsigned int defaultrcs = 15;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 6;
 
 /*
  * Whether to use pixel geometry or cell geometry
