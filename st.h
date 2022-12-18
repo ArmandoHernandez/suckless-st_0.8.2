@@ -33,9 +33,7 @@ enum glyph_attribute {
 	ATTR_WRAP       = 1 << 8,
 	ATTR_WIDE       = 1 << 9,
 	ATTR_WDUMMY     = 1 << 10,
-	ATTR_BOXDRAW    = 1 << 11,
 	ATTR_BOLD_FAINT = ATTR_BOLD | ATTR_FAINT,
-	ATTR_DIRTYUNDERLINE = 1 << 15,
 };
 
 enum selection_mode {
@@ -67,8 +65,6 @@ typedef struct {
 	ushort mode;      /* attribute flags */
 	uint32_t fg;      /* foreground  */
 	uint32_t bg;      /* background  */
-	int ustyle;	  /* underline style */
-	int ucolor[3];    /* underline color */
 } Glyph;
 
 typedef Glyph *Line;
@@ -85,22 +81,17 @@ void die(const char *, ...);
 void redraw(void);
 void draw(void);
 
-void kscrolldown(const Arg *);
-void kscrollup(const Arg *);
-void opencopied(const Arg *);
 void printscreen(const Arg *);
 void printsel(const Arg *);
 void sendbreak(const Arg *);
 void toggleprinter(const Arg *);
-void copyurl(const Arg *);
 
 int tattrset(int);
-int tisaltscr(void);
 void tnew(int, int);
 void tresize(int, int);
 void tsetdirtattr(int);
 void ttyhangup(void);
-int ttynew(char *, char *, char *, char **);
+int ttynew(const char *, char *, const char *, char **);
 size_t ttyread(void);
 void ttyresize(int, int);
 void ttywrite(const char *, size_t, int);
@@ -118,17 +109,7 @@ size_t utf8encode(Rune, char *);
 
 void *xmalloc(size_t);
 void *xrealloc(void *, size_t);
-char *xstrdup(char *);
-
-int subprocwd(char *);
-
-int isboxdraw(Rune);
-ushort boxdrawindex(const Glyph *);
-#ifdef XFT_VERSION
-/* only exposed to x.c, otherwise we'll need Xft.h for the types */
-void boxdraw_xinit(Display *, Colormap, XftDraw *, Visual *);
-void drawboxes(int, int, int, int, XftColor *, XftColor *, const XftGlyphFontSpec *, int);
-#endif
+char *xstrdup(const char *);
 
 /* config.h globals */
 extern char *utmp;
@@ -142,4 +123,4 @@ extern char *termname;
 extern unsigned int tabspaces;
 extern unsigned int defaultfg;
 extern unsigned int defaultbg;
-extern float alpha;
+extern unsigned int defaultcs;
